@@ -17,10 +17,10 @@
 
         <ImageView
             android:id="@+id/image_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_android"
+            app:srcCompat="@drawable/ic_test"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
@@ -33,6 +33,6 @@
             android:gravity="center"
             android:fontFamily="@font/montserrat_regular"
             android:textSize="15sp"
-            android:textColor="#212121" />
+            android:textColor="#212121"/>
     </LinearLayout>
 </merge>

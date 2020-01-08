@@ -84,7 +84,7 @@ open class Fabtn : LinearLayout {
     private fun getValues(context: Context, attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.attr_fabtn)
         textValue = typedArray.getString(R.styleable.attr_fabtn_text)
-        imageDrawable = typedArray.getResourceId(R.styleable.attr_fabtn_icon, R.drawable.ic_android)
+        imageDrawable = typedArray.getResourceId(R.styleable.attr_fabtn_icon, R.drawable.ic_test)
         textColorValue = typedArray.getColor(
             R.styleable.attr_fabtn_text_color,
             ContextCompat.getColor(context, android.R.color.black)
@@ -216,7 +216,8 @@ open class Fabtn : LinearLayout {
         }
     }
 
-    fun startLoading() {
+    fun startLoading(text: String) {
+        fabTextView?.text = text
         fabImageView?.setImageResource(R.drawable.ring)
         fabContainer?.isEnabled = false
 
@@ -231,7 +232,8 @@ open class Fabtn : LinearLayout {
         animatorSet.start()
     }
 
-    fun finishLoading() {
+    fun finishLoading(text: String) {
+        fabTextView?.text = text
         fabImageView?.setImageResource(imageDrawable!!)
         fabContainer?.isEnabled = true
         animatorSet.end()

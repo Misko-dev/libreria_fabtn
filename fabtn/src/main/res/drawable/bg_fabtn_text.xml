@@ -3,6 +3,6 @@
     <size
         android:width="@dimen/fab_with_text_size"
         android:height="@dimen/fab_with_text_size" />
-    <solid android:color="#e91e63" />
+    <solid android:color="#FFC107" />
     <corners android:radius="@dimen/fab_corners" />
 </shape>
