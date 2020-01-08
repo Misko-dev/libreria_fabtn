@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="attr_fabtn">
+        <attr name="text" format="string" />
+        <attr name="icon" format="reference" />
+        <attr name="text_color" format="color" />
+        <attr name="icon_color" format="color" />
+        <attr name="color" format="color" />
+    </declare-styleable>
+</resources>
