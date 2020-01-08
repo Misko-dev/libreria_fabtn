@@ -20,7 +20,6 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:tint="@android:color/white"
             app:srcCompat="@drawable/ic_android"
             tools:ignore="VectorDrawableCompat" />
 
@@ -32,8 +31,8 @@
             android:layout_marginStart="@dimen/fab_inner_margin_left"
             android:layout_marginLeft="@dimen/fab_inner_margin_left"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textColor="@android:color/white"
-            tools:text="Button" />
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="15sp"
+            android:textColor="#212121" />
     </LinearLayout>
 </merge>
