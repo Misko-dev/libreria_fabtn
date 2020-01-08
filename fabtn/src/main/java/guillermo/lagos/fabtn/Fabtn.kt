@@ -24,6 +24,9 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import com.mikepenz.fontawesome_typeface_library.FontAwesome
+import com.mikepenz.iconics.IconicsDrawable
+import kotlin.reflect.KProperty
 
 @SuppressLint("NewApi")
 open class Fabtn : LinearLayout {
@@ -37,10 +40,22 @@ open class Fabtn : LinearLayout {
     private var textColorValue: Int? = null
     private var imageTint: Int? = null
     private var backgroundColor: String? = null
+    private var icon : IconicsDrawable? = null
 
     var onClickListener: (View) -> Unit = {}
 
     val animatorSet = AnimatorSet()
+
+    var defaultIcon = IconicsDrawable(context)
+        .icon(FontAwesome.Icon.faw_dollar_sign)
+        .color(ContextCompat.getColor(context, R.color.white))
+        .sizeDp(20)
+
+    var iconDraw : IconicsDrawable by validateProp(defaultIcon){
+        icon = iconDraw
+    }
+
+    private var isPropIntialised = false
 
     constructor(context: Context) : super(context) {
         initializeView(context)
@@ -69,8 +84,7 @@ open class Fabtn : LinearLayout {
     private fun getValues(context: Context, attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.attr_fabtn)
         textValue = typedArray.getString(R.styleable.attr_fabtn_text)
-        imageDrawable =
-            typedArray.getResourceId(R.styleable.attr_fabtn_icon, R.drawable.ic_android)
+        imageDrawable = typedArray.getResourceId(R.styleable.attr_fabtn_icon, R.drawable.ic_android)
         textColorValue = typedArray.getColor(
             R.styleable.attr_fabtn_text_color,
             ContextCompat.getColor(context, android.R.color.black)
@@ -79,8 +93,10 @@ open class Fabtn : LinearLayout {
             R.styleable.attr_fabtn_icon_color,
             ContextCompat.getColor(context, android.R.color.black)
         )
-        backgroundColor = typedArray.getString(R.styleable.attr_fabtn_text_color)
+        backgroundColor = typedArray.getString(R.styleable.attr_fabtn_color)
         typedArray.recycle()
+
+        isPropIntialised = true
     }
 
     fun Context.createVectorCompatDrawable(drawableId: Int) =
@@ -113,9 +129,15 @@ open class Fabtn : LinearLayout {
 
         setBackgroundResource(R.drawable.bg_fabtn)
 
-        fabImageView?.setImageDrawable(context.createVectorCompatDrawable(imageDrawable!!))
 
-        ImageViewCompat.setImageTintList(fabImageView!!, ColorStateList.valueOf(imageTint!!))
+
+        if(icon != defaultIcon){
+            fabImageView?.setImageDrawable(icon)
+        }else{
+            fabImageView?.setImageDrawable(context.createVectorCompatDrawable(imageDrawable!!))
+            ImageViewCompat.setImageTintList(fabImageView!!, ColorStateList.valueOf(imageTint!!))
+        }
+
 
         fabContainer?.background?.setColorFilter(
             Color.parseColor(
@@ -213,5 +235,23 @@ open class Fabtn : LinearLayout {
         fabImageView?.setImageResource(imageDrawable!!)
         fabContainer?.isEnabled = true
         animatorSet.end()
+    }
+
+    inner class validateProp<T>(private var field: T, private inline var func: () -> Unit = {}) {
+        operator fun setValue(thisRef: Any?, p: KProperty<*>, v: T) {
+            field = v
+            if (isPropIntialised) {
+                func()
+                onFinishInflate()
+                invalidate()
+
+            }
+
+        }
+
+        operator fun getValue(thisRef: Any?, p: KProperty<*>): T {
+            return field
+        }
+
     }
 }
