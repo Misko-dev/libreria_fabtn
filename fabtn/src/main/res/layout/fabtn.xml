@@ -32,6 +32,7 @@
             android:layout_marginLeft="@dimen/fab_inner_margin_left"
             android:gravity="center"
             android:fontFamily="@font/montserrat_regular"
+            android:text="asdasasdasdas"
             android:textSize="15sp"
             android:textColor="#212121" />
     </LinearLayout>

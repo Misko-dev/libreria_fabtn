@@ -3,7 +3,7 @@
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="fab_rest_elevation">6dp</dimen>
     <dimen name="fab_translation_z_elevation">48dp</dimen>
-    <dimen name="fab_inner_margin_left">12dp</dimen>
+    <dimen name="fab_inner_margin_left">6dp</dimen>
     <dimen name="fab_inner_margin_right">20dp</dimen>
     <dimen name="fab_size">56dp</dimen>
     <dimen name="fab_with_text_size">48dp</dimen>
