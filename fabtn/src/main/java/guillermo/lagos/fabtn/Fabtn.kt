@@ -127,7 +127,7 @@ open class Fabtn : LinearLayout {
             isClickable = true
         }
 
-        setBackgroundResource(R.drawable.bg_fabtn)
+        setBackgroundResource(R.drawable.bg_fabtn_text)
 
 
 
@@ -153,7 +153,7 @@ open class Fabtn : LinearLayout {
 
             fabTextView?.visibility = GONE
 
-            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn)
+            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn_text)
 
             fabContainer?.background?.setColorFilter(
                 Color.parseColor(
@@ -202,7 +202,7 @@ open class Fabtn : LinearLayout {
             TransitionManager.beginDelayedTransition(this)
             fabTextView?.visibility = VISIBLE
 
-            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn)
+            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn_text)
 
             fabContainer?.background?.setColorFilter(
                 Color.parseColor(

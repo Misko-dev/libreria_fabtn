@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
-        android:background="@drawable/bg_fabtn"
+        android:background="@drawable/bg_fabtn_text"
         android:clickable="true"
         android:focusable="true"
         android:orientation="horizontal"
@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/image_fab"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_android"
             tools:ignore="VectorDrawableCompat" />
@@ -32,7 +32,6 @@
             android:layout_marginLeft="@dimen/fab_inner_margin_left"
             android:gravity="center"
             android:fontFamily="@font/montserrat_regular"
-            android:text="asdasasdasdas"
             android:textSize="15sp"
             android:textColor="#212121" />
     </LinearLayout>
