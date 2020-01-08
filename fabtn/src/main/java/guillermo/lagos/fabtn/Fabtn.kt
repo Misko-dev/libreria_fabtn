@@ -153,7 +153,7 @@ open class Fabtn : LinearLayout {
 
             fabTextView?.visibility = GONE
 
-            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn_text)
+            fabContainer?.setBackgroundResource(R.drawable.bg_fabtn)
 
             fabContainer?.background?.setColorFilter(
                 Color.parseColor(
